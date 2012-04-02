@@ -17,7 +17,7 @@ for (i=1:length(tierIndex))
 end
 ordered=sortrows(segments,[3 2 1]);
 [au, survivingIds,assignedIds]=almostUnique(ordered(:,3));
-activeAnno=cell(length(survivingIds),1);
+activeAnno=cell(length(tierIndex),1);
 for (i=1:length(survivingIds))
     matchingIds=find(assignedIds==i);
     segment(i).annotations=ordered(matchingIds,:);
