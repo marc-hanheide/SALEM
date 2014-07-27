@@ -139,7 +139,7 @@ else
 		mediacount = 0;
 		for i=0:mediaFilesElem.getLength-1
 			mediacount=mediacount+1;
-			media_origin = str2num(mediaFilesElem.item(0).getAttribute('TIME_ORIGIN'));
+			media_origin = str2num(mediaFilesElem.item(i).getAttribute('TIME_ORIGIN'));
 			mediumID = strcat('medium_',num2str(mediacount),'_origin');
 			elan.mediaFiles.(mediumID) = media_origin;
 			% you can add code here that allows to import the linked media files
