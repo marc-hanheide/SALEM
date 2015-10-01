@@ -82,7 +82,15 @@ maxStop=0;
 for i=0:tierElems.getLength-1
 	elem=tierElems.item(i);
 	tId = char(elem.getAttribute('TIER_ID'));
+	% Do string replacements for ' ',Ö,ö,Ä,ä,Ü,ü,ß
 	tId = regexprep(strtrim(tId),'[^\w]','_');
+	tId = strrep(tId, 'ü', 'ue');
+	tId = strrep(tId, 'ö', 'oe');
+	tId = strrep(tId, 'ä', 'ae');
+	tId = strrep(tId, 'Ü', 'Ue');
+	tId = strrep(tId, 'Ö', 'Oe');
+	tId = strrep(tId, 'Ä', 'Ae');
+	tId = strrep(tId, 'ß', 'ss');
 	if (exist ('/Users/adierker/svn-checkouts/programming/matlab','file'))
 		% ONLY in our special case delete all _001/_002/... endings of tiernames
 		if(strfind (tId ,'syllables')) % ignore syllables-tiers
